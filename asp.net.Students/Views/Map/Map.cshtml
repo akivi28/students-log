@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "Map";
+}
+
+<style>
+    #map {
+        height: 700px;
+    }
+</style>
+
+<div>
+    <h1>Map</h1>
+    <div id="map"></div>
+</div>
+
+@section Scripts{
+    <script>
+        var map = L.map('map').setView([49.8397, 24.0297], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        fetch("/Map/MapData").then(r => r.json()).then(markers => {
+            markers.forEach((m, index) => {
+                let marker = L.marker({ lat: m.lat, lng: m.long }).addTo(map).bindPopup(m.title);
+                marker.options.id = m.id;
+            })
+        })
+
+        function onMapClick(e) {
+            Swal.fire({
+                title: 'Enter the marker name',
+                input: 'text',
+                inputPlaceholder: 'Marker name',
+                showCancelButton: true,
+                confirmButtonText: 'Add',
+                cancelButtonText: 'Cancel',
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'Marker name cannot be empty'
+                    }
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let data = {
+                        Lat: e.latlng.lat,
+                        Long: e.latlng.lng,
+                        Title: result.value
+                    }
+                    fetch("/Map/AddPoint", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data)
+                    }).then(r => r.json())
+                        .then(data => {
+                            if (data.ok) {
+                                Swal.fire({
+                                    title: "Success",
+                                    text: "Marker added",
+                                    icon: "success",
+                                    confirmButtonText: 'OK',
+                                    timer: 1500
+                                }).then(() => {
+                                    fetch("/Map/MapData").then(r => r.json()).then(markers => {
+                                        map.eachLayer(function (layer) {
+                                            if (layer instanceof L.Marker) {
+                                                map.removeLayer(layer);
+                                            }
+                                        });
+                                        markers.forEach((m, index) => {
+                                            let marker = L.marker({ lat: m.lat, lng: m.long }).addTo(map).bindPopup(m.title);
+                                            marker.options.id = m.id;
+                                        });
+                                    });
+                                });
+
+                            } else {
+                                Swal.fire({
+                                    title: "Error",
+                                    text: "An error occurred while adding the marker",
+                                    icon: "error",
+                                    confirmButtonText: 'OK'
+                                });
+                            }
+                        })
+                }
+            })
+        }
+        map.on('click', onMapClick);
+
+        map.on('popupopen', function (e) {
+            var marker = e.popup._source;
+            var markerId = marker.options.id;
+
+            if (!document.getElementById("deleteMarker")) {
+                e.popup.setContent('<p>'+e.popup.getContent()+'</p>' + '<br><button id="deleteMarker" class="btn btn-danger">Delete marker</button>');
+            }
+
+            document.getElementById("deleteMarker").addEventListener("click", function () {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You are about to delete this marker. Are you sure?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'Cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        removePoint(markerId);
+                    }
+                });
+            });
+
+            function removePoint(pointId) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Map/DeleteMarker',
+                    data: { id: pointId },
+                    success: function () {
+                        map.removeLayer(marker);
+                        Swal.fire("Marker successfully deleted", '', 'success');
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        Swal.fire("Error deleting marker", '', 'error');
+                    }
+                });
+            }
+        });
+    </script>
+}
+

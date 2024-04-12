@@ -1,0 +1,70 @@
+﻿@model List<Group>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+{
+    <a asp-controller="Groups" asp-action="AddGroup" class="btn btn-success">Add Group</a>
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Count of students</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model)
+        {
+            <tr>
+                <td>@group.Id</td>
+                <td>@group.Name</td>
+                <td class="ps-5">@(group.Members == null ? "0" : group.Members.Count.ToString())</td>
+                <td>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Teacher") || User.IsInRole("Student"))
+                    {
+                        <a asp-controller="Groups" asp-action="ShowGroup" asp-route-id="@group.Id" class="btn btn-primary">Show All Info</a>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                    {
+                        <a asp-controller="Groups" asp-action="EditGroup" asp-route-id="@group.Id" class="btn btn-warning">Edit</a>
+                        <button onclick="confirmDelete('@group.Id', event)" class="btn btn-danger">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete(groupId, event) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this group!",
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                removeGroup(groupId, event);
+            }
+        });
+    }
+
+    function removeGroup(groupId, event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/Groups/DeleteGroup',
+            data: { id: groupId },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

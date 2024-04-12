@@ -1,0 +1,34 @@
+﻿@model QuizStudentResult
+
+<div class="d-flex flex-column align-items-center">
+    <div class="d-flex justify-content-between w-75">
+        @{
+            var maxScore = Model.Quiz.Questions.Sum(x => x.Options.Sum(o => o.Value));
+        }
+        <h2>@Model.Quiz.Title</h2>
+        <h4>@Math.Round(Model.Score, 2) / @maxScore</h4>
+    </div>
+    <div class="w-100">
+        @foreach (var question in @Model.Quiz.Questions)
+        {
+            float scoreByQuestion = 0;
+            <div class="p-3 m-3 border border-dark rounded-3 d-flex flex-column-reverse">
+                <div>
+                    @foreach (var option in @question.Options)
+                    {
+                        var isCorrect = option.Value > 0;
+                        var isUserSelected = Model.StudentAnswers.Any(answer => answer.Option.Id == option.Id);
+                        var textColor = isCorrect ? "green" : "red";
+                        var bgColor = isCorrect && isUserSelected ? "rgba(0, 128, 0, 0.3)" : (!isCorrect && isUserSelected ? "rgba(255, 0, 0, 0.3)" : "white");
+                        scoreByQuestion += isCorrect && isUserSelected ? option.Value : 0;
+                        <p class="m-0" style="color: @textColor; background-color: @bgColor; padding: 5px;">@option.Text</p>
+                    }
+                </div>
+                <h4>
+                    @question.Text 
+                    <span class="badge bg-primary">@Math.Round(scoreByQuestion, 2)</span>
+                </h4>
+            </div>
+        }
+    </div>
+</div>

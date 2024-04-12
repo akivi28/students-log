@@ -1,0 +1,108 @@
+﻿@model List<asp.net.Students.Models.User>
+
+<style>
+    .show{
+        max-width: 100vw;
+    }
+</style>
+<a asp-controller="User" asp-action="Create" class="btn btn-success">Add user</a>
+
+<div class="modal" id="userDetailsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="userDetailsModalBody">
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 50%;">Name</th>
+        <th style="width: 40%;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td style="width: 10%;">@user.Id</td>
+            <td style="width: 50%;">@user.Email</td>
+            <td style="width: 40%;">
+                <button class="btn btn-success" onclick="showChangeRoles(@user.Id)">Change role</button>
+                <button class="btn btn-primary" onclick="showUserDetails('@user.Id')">Show</button>
+                <a asp-controller="User" asp-action="Edit" asp-route-email="@user.Email" class="btn btn-warning">Edit password</a>
+                <button onclick="confirmUserDelete('@user.Id', event)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+<script>
+    
+    function confirmUserDelete(userId, event) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this user!",
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    removeUser(userId, event);
+                }
+            });
+        }
+    
+    function removeUser(userId, event) {
+        event.preventDefault();
+        $.ajax({
+            url: '/Auth/User/Delete',
+            type: 'post',
+            data: { userId: userId },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+    
+    function showUserDetails(userId) {
+        $.ajax({
+            url: '/Auth/User/Details',
+            type: 'GET',
+            data: { userId: userId },
+            success: function(data) {
+                $('#userDetailsModalBody').html(data);
+                $('#userDetailsModal').modal('show');
+            },
+            error: function(xhr, status, error) {
+                console.log('Error:', error);
+            }
+        });
+    }
+    function showChangeRoles(userId) {
+            $.ajax({
+                url: '/Auth/User/ChangeRole/',
+                type: 'GET',
+                data: { userId: userId },
+                success: function(data) {
+                    $('#userDetailsModalBody').html(data);
+                    $('#userDetailsModal').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', error);
+                }
+            });
+        }
+</script>
+
+

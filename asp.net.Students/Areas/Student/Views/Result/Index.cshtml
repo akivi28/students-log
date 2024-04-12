@@ -1,0 +1,37 @@
+﻿@model List<QuizStudentResult>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title of test</th>
+        <th>Score</th>
+        <th>Pass date</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model != null)
+    {
+        foreach (var result in Model)
+        {
+            <tr>
+                @{
+                    var maxScore = result.Quiz.Questions.Sum(x => x.Options.Sum(o => o.Value));
+                }
+                <td>@result.Id</td>
+                <td>@result.Quiz.Title</td>
+                <td>@Math.Round(result.Score,2) / @maxScore</td>
+                <td>@result.CreatedAt</td>
+                <td>
+                    <a class="btn btn-primary"
+                       asp-area="Student"
+                       asp-controller="Result"
+                       asp-action="Show"
+                       asp-route-id="@result.Id">Show</a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

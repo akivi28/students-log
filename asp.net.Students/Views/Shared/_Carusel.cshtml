@@ -1,0 +1,61 @@
+﻿@model CarouselModel
+
+<div id="carouselExampleIndicators_@Model.StudentId" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        @for (int i = 0; i < Model.Photos.Count; i++)
+        {
+            <button type="button" data-bs-target="#carouselExampleIndicators_@Model.StudentId" data-bs-slide-to="@i" @(i == 0 ? "class=active" : "") aria-label="Slide @(i + 1)"></button>
+        }
+    </div>
+    <div class="carousel-inner">
+        @for (int i = 0; i < Model.Photos.Count; i++)
+        {
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <img src="@Model.Photos[i].Url" class="d-block w-100" alt="Photo @(i + 1)">
+                <div class="carousel-caption">
+                    <button class="btn btn-danger" onclick="confirmDelete('@Model.StudentId', '@Model.Photos[i].Id')">Delete photo</button>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_@Model.StudentId" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators_@Model.StudentId" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<script>
+    function confirmDelete(studentId, photoId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this photo!",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                removePhoto(studentId, photoId);
+            }
+        });
+    }
+
+    function removePhoto(studentId, photoId) {
+        $.ajax({
+            type: 'POST',
+            url: '/Students/RemovePhoto',
+            data: { id: studentId, photo: photoId },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

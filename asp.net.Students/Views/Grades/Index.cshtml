@@ -1,0 +1,80 @@
+﻿@model List<Grade>
+@{
+    var Subject = ViewData["Subject"] as Subject;
+
+    var StudentId = ViewData["StudentId"];
+    var SubjectId = ViewData["SubjectId"];
+}
+
+<style>
+    input[type="number"] {
+        -moz-appearance: textfield;
+        text-align: center;
+    }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none; /* Webkit */
+            margin: 0;
+        }
+</style>
+
+<div>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+    {
+        <form method="post" class="ms-5">
+            <input type="hidden" name="StudentId" value="@StudentId" />
+            <input type="hidden" name="SubjectId" value="@SubjectId" />
+            @if(Model != null)
+            {
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    <input style="width:35px" type="number" max="12" min="0" value="@Model[i].Value" name="grades[@i].Value" />
+                    <input type="hidden" name="grades[@i].Id" value="@Model[i].Id" />
+                }
+            }
+            <input style="width:35px" type="number" max="12" min="0" name="grades[@(Model?.Count ?? 0)].Value"/>
+            <br/>
+            <button type="submit" class="btn btn-success mt-3">Save</button>
+            <a asp-controller="Students" asp-action="Show" asp-route-id="@StudentId" class="btn btn-primary  mt-3">Return</a>
+        </form>
+    }
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var myData = @Html.Raw(Json.Serialize(Model.Select(x => x.Value)));
+    var emptyLabels = Array.from({ length: myData.length }, () => '');
+    var subjectName = '@Subject.Name';
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: emptyLabels,
+            datasets: [
+                {
+                    label: subjectName,
+                    data: myData,
+                    borderColor: 'rgba(0, 128, 0, 1)',
+                    backgroundColor: 'rgba(224, 255, 255, 0.2)',
+                    borderWidth: 2
+                },
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 12,
+                    ticks:{
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+</script>

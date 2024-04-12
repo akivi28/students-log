@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\asp.net.Students.props" />
+</Project>

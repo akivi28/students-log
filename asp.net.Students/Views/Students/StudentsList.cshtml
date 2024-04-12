@@ -1,0 +1,76 @@
+﻿@model List<Info>
+
+@if (User.IsInRole("Admin"))
+{
+    <a asp-controller="Students" asp-action="AddStudent" class="btn btn-success">Add Student</a>
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Photo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Surname</td>
+                <td>
+                    <div class="photoInList">
+                        @if (student.Photos != null && student.Photos.Count != 0)
+                        {
+                            @Html.Partial("_Carusel", new CarouselModel { StudentId = student.Id, Photos = student.Photos.ToList() })
+                        }
+                    </div>
+                </td>
+                <td>
+                    <a asp-controller="Students" asp-action="Show" asp-route-id="@student.Id" class="btn btn-primary">Show All Info</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id" class="btn btn-warning">Edit</a>
+                        <button onclick="confirmDelete('@student.Id', event)" class="btn btn-danger">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete(studentId, event) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this student!",
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                removeStudent(studentId, event);
+            }
+        });
+    }
+
+    function removeStudent(studentId, event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/Students/Delete',
+            data: { id: studentId },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

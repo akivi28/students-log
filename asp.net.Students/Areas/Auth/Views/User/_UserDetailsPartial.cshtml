@@ -1,0 +1,12 @@
+﻿@model User
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="modal-title">User Details</h5>
+    </div>
+    <div class="card-body">
+        <p><strong>ID:</strong> @Model.Id</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Roles:</strong> @string.Join(", ", ViewData["UserRoles"] as IEnumerable<string>)</p>
+    </div>
+</div>

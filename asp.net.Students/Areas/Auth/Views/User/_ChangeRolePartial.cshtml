@@ -1,0 +1,22 @@
+﻿
+@{
+    string userId = ViewBag.UserId;
+    string userName = ViewBag.UserName;
+    List<string> allRoles = ViewBag.AllRoles;
+    List<string> userRoles = ViewBag.UserRoles;
+}
+
+<form asp-area="Auth" asp-controller="User" asp-action="ChangeRole" method="post">
+    <input type="hidden" name="UserId" value="@userId" />
+    <h4>Change Role for @userName</h4>
+    <div>
+        @foreach (var role in allRoles)
+        {
+            <div>
+                <input type="checkbox" name="SelectedRoles" value="@role" @(userRoles.Contains(role) ? "checked" : "") />
+                <label>@role</label>
+            </div>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

@@ -1,0 +1,393 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\asp.net.Students.bundle.scp.css",
+      "PackagePath": "staticwebassets\\asp.net.Students.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\0\\photo_0aa78ef1-692e-40e9-9c75-096a36831085.png",
+      "PackagePath": "staticwebassets\\images\\0\\photo_0aa78ef1-692e-40e9-9c75-096a36831085.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\0\\photo_129c6b31-3658-4b82-87cb-4ccbd2823f87.png",
+      "PackagePath": "staticwebassets\\images\\0\\photo_129c6b31-3658-4b82-87cb-4ccbd2823f87.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\0\\photo_52aec10a-b423-4ffc-a27d-e8d56ee9b4c0.png",
+      "PackagePath": "staticwebassets\\images\\0\\photo_52aec10a-b423-4ffc-a27d-e8d56ee9b4c0.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\0\\photo_677e1a67-09e9-4d28-b831-7910f050feab.png",
+      "PackagePath": "staticwebassets\\images\\0\\photo_677e1a67-09e9-4d28-b831-7910f050feab.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\0\\photo_80508fac-8542-489b-9e84-628956fe2645.png",
+      "PackagePath": "staticwebassets\\images\\0\\photo_80508fac-8542-489b-9e84-628956fe2645.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\0\\photo_c846275a-a065-4fe5-9c79-21d4713e96cc.png",
+      "PackagePath": "staticwebassets\\images\\0\\photo_c846275a-a065-4fe5-9c79-21d4713e96cc.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\10\\photo_683a5b65-be4b-459f-8ace-b6c7db4b1772.png",
+      "PackagePath": "staticwebassets\\images\\10\\photo_683a5b65-be4b-459f-8ace-b6c7db4b1772.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\10\\photo_d30149ea-5f77-4d98-8a84-b6bfb281e236.png",
+      "PackagePath": "staticwebassets\\images\\10\\photo_d30149ea-5f77-4d98-8a84-b6bfb281e236.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\10\\photo_f1ac430e-9b14-4bcc-8293-9b1f0eb22611.png",
+      "PackagePath": "staticwebassets\\images\\10\\photo_f1ac430e-9b14-4bcc-8293-9b1f0eb22611.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\11\\photo_6e520241-0c6e-4a79-8f75-09ca1d43fa55.png",
+      "PackagePath": "staticwebassets\\images\\11\\photo_6e520241-0c6e-4a79-8f75-09ca1d43fa55.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\11\\photo_74c9da87-6e5d-47f4-b064-8cfa3cca6212.png",
+      "PackagePath": "staticwebassets\\images\\11\\photo_74c9da87-6e5d-47f4-b064-8cfa3cca6212.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\1\\photo_0fdaea54-6f91-408a-9b7a-c5e1f4b9ca3d.png",
+      "PackagePath": "staticwebassets\\images\\1\\photo_0fdaea54-6f91-408a-9b7a-c5e1f4b9ca3d.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\1\\photo_65bed766-346d-454f-ac5b-a0e326f42077.png",
+      "PackagePath": "staticwebassets\\images\\1\\photo_65bed766-346d-454f-ac5b-a0e326f42077.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\1\\photo_dc8aa9bd-0ce7-4c55-baa0-c331ac04f441.png",
+      "PackagePath": "staticwebassets\\images\\1\\photo_dc8aa9bd-0ce7-4c55-baa0-c331ac04f441.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\2\\photo_83f4024b-91f6-4f96-a0b5-fece241fe7e9.png",
+      "PackagePath": "staticwebassets\\images\\2\\photo_83f4024b-91f6-4f96-a0b5-fece241fe7e9.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\2\\photo_f4f0b604-7519-4d5d-838a-76228c741f01.png",
+      "PackagePath": "staticwebassets\\images\\2\\photo_f4f0b604-7519-4d5d-838a-76228c741f01.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\3\\photo_5f4a439e-01d9-411c-8382-2de89c268fdb.png",
+      "PackagePath": "staticwebassets\\images\\3\\photo_5f4a439e-01d9-411c-8382-2de89c268fdb.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\3\\photo_da9541a5-cb52-4a46-a97f-080738a7f312.png",
+      "PackagePath": "staticwebassets\\images\\3\\photo_da9541a5-cb52-4a46-a97f-080738a7f312.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\3\\photo_e9471800-f6e9-4b3c-9b2f-af409a46e938.png",
+      "PackagePath": "staticwebassets\\images\\3\\photo_e9471800-f6e9-4b3c-9b2f-af409a46e938.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\4\\photo_1b26ef9b-1fb7-4854-a051-fc2147cd8dbd.png",
+      "PackagePath": "staticwebassets\\images\\4\\photo_1b26ef9b-1fb7-4854-a051-fc2147cd8dbd.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\4\\photo_6346d97f-363b-4629-bc45-09a2b403e05a.png",
+      "PackagePath": "staticwebassets\\images\\4\\photo_6346d97f-363b-4629-bc45-09a2b403e05a.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\5\\photo_41c4f8dd-e483-4541-954b-69cc8d5017cb.png",
+      "PackagePath": "staticwebassets\\images\\5\\photo_41c4f8dd-e483-4541-954b-69cc8d5017cb.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\5\\photo_c153db87-bbb9-4c42-b387-fd209797d125.png",
+      "PackagePath": "staticwebassets\\images\\5\\photo_c153db87-bbb9-4c42-b387-fd209797d125.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\5\\photo_e395b78b-8b93-4f0f-b9aa-3606908aeaf1.png",
+      "PackagePath": "staticwebassets\\images\\5\\photo_e395b78b-8b93-4f0f-b9aa-3606908aeaf1.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\6\\photo_766d826c-25e9-4a2a-9d19-b9d9f95c47a4.png",
+      "PackagePath": "staticwebassets\\images\\6\\photo_766d826c-25e9-4a2a-9d19-b9d9f95c47a4.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\6\\photo_d023a297-3c1a-4354-a0fa-5e9c7ce268eb.png",
+      "PackagePath": "staticwebassets\\images\\6\\photo_d023a297-3c1a-4354-a0fa-5e9c7ce268eb.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\7\\photo_8d4c92e3-e414-46ac-8871-6ecc79cfc0a4.png",
+      "PackagePath": "staticwebassets\\images\\7\\photo_8d4c92e3-e414-46ac-8871-6ecc79cfc0a4.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\8\\photo_36d28cc4-dca5-4a6f-a8cf-e66f4790e4a8.png",
+      "PackagePath": "staticwebassets\\images\\8\\photo_36d28cc4-dca5-4a6f-a8cf-e66f4790e4a8.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\8\\photo_bcfc33c0-fe27-4111-bc22-5c1f340d3e82.png",
+      "PackagePath": "staticwebassets\\images\\8\\photo_bcfc33c0-fe27-4111-bc22-5c1f340d3e82.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\images\\9\\photo_9ab0b633-870b-4e4a-adeb-fdc0a1b20788.png",
+      "PackagePath": "staticwebassets\\images\\9\\photo_9ab0b633-870b-4e4a-adeb-fdc0a1b20788.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\prImg\\accept.png",
+      "PackagePath": "staticwebassets\\prImg\\accept.png"
+    },
+    {
+      "Id": "C:\\Users\\OrbitaPC260\\source\\repos\\asp.net.Students\\asp.net.Students\\wwwroot\\prImg\\remove.png",
+      "PackagePath": "staticwebassets\\prImg\\remove.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.asp.net.Students.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.asp.net.Students.props",
+      "PackagePath": "build\\asp.net.Students.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.asp.net.Students.props",
+      "PackagePath": "buildMultiTargeting\\asp.net.Students.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.asp.net.Students.props",
+      "PackagePath": "buildTransitive\\asp.net.Students.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

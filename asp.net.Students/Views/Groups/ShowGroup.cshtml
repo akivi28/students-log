@@ -1,0 +1,35 @@
+﻿@model Group
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>@Model.Name</h2>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Members:</h6>
+                <table class="table table-striped">
+                    <tbody>
+                        @foreach (var student in Model.Members)
+                        {
+                            <tr>
+                                <td>@student.Name</td>
+                                <td>@student.Surname</td>
+                                <td>
+                                    <a asp-controller="Students" asp-action="Show" asp-route-id="@student.Id" class="btn btn-primary">Show All Info</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Groups" asp-action="GroupList" class="btn btn-primary">Return</a>
+                @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                {
+                    <a asp-controller="Groups" asp-action="EditGroup" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

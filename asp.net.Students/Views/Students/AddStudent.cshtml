@@ -1,0 +1,84 @@
+﻿@model Info
+@{
+	var groups = ViewData["Groups"] as List<Group>;
+	var subjects = ViewData["Subjects"] as List<Subject>;
+}
+
+<div class="row">
+	<div class="col-md-6">
+		<form method="post" enctype="multipart/form-data">
+			<div class="card">
+				<div class="card-body">
+
+					<div class="mb-3">
+						@Html.LabelFor(m => m.Name, new {@class="form-label"})
+						@Html.TextBoxFor(m => m.Name, new {@class="form-control"})
+						@Html.ValidationMessageFor(m => m.Name)
+					</div>
+
+					<div class="mb-3">
+						@Html.LabelFor(m => m.Surname, new {@class="form-label"})
+						@Html.TextBoxFor(m => m.Surname, new {@class="form-control"})
+						@Html.ValidationMessageFor(m => m.Surname)
+					</div>
+
+					<div class="mb-3">
+						@Html.LabelFor(m => m.Description, new {@class="form-label"})
+						@Html.TextAreaFor(m => m.Description, new {@class="form-control"})
+						@Html.ValidationMessageFor(m => m.Description)
+					</div>
+
+					<div class="mb-3">
+						@Html.LabelFor(m => m.BirthDay, new {@class="form-label"})
+						@Html.TextBoxFor(m => m.BirthDay, new {@class="form-control", type="date"})
+						@Html.ValidationMessageFor(m => m.BirthDay)
+					</div>
+
+					<div class="mb-3">
+						<div class="form-check">
+							@Html.CheckBoxFor(m => m.IsFree, new {@class="form-check-input"})
+							@Html.LabelFor(m => m.IsFree, new {@class="form-check-label"})
+							@Html.ValidationMessageFor(m => m.IsFree)
+						</div>
+					</div>
+
+					<div class="mb-3">
+						@Html.Label("Photos", null, new { @class = "form-label" })
+						<input type="file" name="Photos" class="form-control" multiple accept=".png" />
+						@Html.ValidationMessageFor(m => m.Photos)
+					</div>
+
+					<div class="mb-3">
+						<label asp-for="GroupId" class="form-label"></label>
+						<select asp-for="GroupId" class="form-control">
+							<option value="">Select Group</option>
+							@foreach (var group in groups)
+							{
+								<option value="@group.Id">@group.Name</option>
+							}
+						</select>
+						<span asp-validation-for="GroupId" class="text-danger"></span>
+					</div>
+
+					<div class="mb-3 d-flex flex-wrap">
+						@foreach (var subject in ViewData["Subjects"] as List<Subject>)
+						{
+							<div class="form-check m-1">
+								<input class="form-check-input" type="checkbox" id="subject-@subject.Id" name="SelectedSubjectIds" value="@subject.Id">
+								<label class="form-check-label" for="subject-@subject.Id">
+									@subject.Name
+								</label>
+							</div>
+						}
+					</div>
+
+
+
+				</div>
+				<div class="card-footer">
+					<button class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

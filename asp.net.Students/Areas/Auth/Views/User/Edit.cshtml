@@ -1,0 +1,32 @@
+﻿@model asp.net.Students.Areas.Auth.Models.RegisterForm;
+@{
+    var user = ViewData["user"] as User;
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form asp-controller="User" asp-action="Edit" method="post">
+            <div class="card">
+                <div class="card-header"><h3>Edit @user.Email password</h3></div>
+
+                <div class="card-body">
+                    <input asp-for="Login" value="@user.Email" class="form-control" hidden=""/>
+                    <div class="mt-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input type="password" asp-for="Password" class="form-control"/>
+                        <span class="text-danger">@Html.ValidationMessageFor(x=>x.Password)</span>
+                    </div>
+                    <div class="mt-3">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <input type="password" asp-for="ConfirmPassword" class="form-control"/>
+                        <span class="text-danger">@Html.ValidationMessageFor(x=>x.ConfirmPassword)</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success">Edit</button>
+                    <a asp-controller="User" asp-action="Index" class="btn btn-light">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+﻿@model List<Subject>
+
+<input type="text" name="SubjectName" id="SubjectName" />
+<span id="error" style="color: red; display: none;">Please enter a subject name.</span>
+<button onclick="Add()" class="btn btn-success">Add Subject</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 20%;">ID</th>
+            <th style="width: 30%;">Name</th>
+            <th style="width: 20%;">Count of students</th>
+            <th style="width: 30%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subject in Model)
+        {
+            <tr>
+                <td>@subject.Id</td>
+                <td>
+                    <p id="subjectName_@subject.Id">@subject.Name</p>
+                    <input type="text" id="newSubjectName_@subject.Id" name="name" value="@subject.Name" style="display: none;" />
+                </td>
+                <td>
+                    <p class="ms-5">@(subject.StudentsList == null ? "0" : subject.StudentsList.Count.ToString())</p>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <button class="btn btn-success m-1" id="saveBtn_@subject.Id" style="display: none;" onclick="Save('@subject.Id')">Save</button>
+                        <button class="btn btn-primary m-1" id="cancelBtn_@subject.Id" style="display: none;" onclick="Cancel('@subject.Id')">Cancel</button>
+
+                        <button class="btn btn-warning m-1" id="editBtn_@subject.Id" onclick="Edit('@subject.Id')">Edit</button>
+
+                        <button onclick="confirmDelete('@subject.Id', event)" id="delBtn_@subject.Id" class="btn btn-danger m-1">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+
+    function Add() {
+        const SubjectName = document.getElementById('SubjectName').value.trim();
+        if (SubjectName === '') {
+            document.getElementById('error').style.display = 'block';
+            return;
+        } else {
+            document.getElementById('error').style.display = 'none';
+        }
+
+        $.ajax({
+            url: '/Subjects/Create',
+            type: 'POST',
+            data: { SubjectName: SubjectName },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function Edit(subjectId) {
+        const subjectName = document.getElementById('subjectName_' + subjectId);
+        subjectName.style.display = 'none';
+        const newSubjectName = document.getElementById('newSubjectName_' + subjectId);
+        newSubjectName.style.display = 'block';
+        const editBtn = document.getElementById('editBtn_' + subjectId);
+        editBtn.style.display = 'none';
+        const saveBtn = document.getElementById('saveBtn_' + subjectId);
+        saveBtn.style.display = 'block';
+        const delBtn = document.getElementById('delBtn_' + subjectId);
+        delBtn.style.display = 'none';
+        const cancelBtn = document.getElementById('cancelBtn_' + subjectId);
+        cancelBtn.style.display = 'block';
+    }
+
+    function Cancel(subjectId) {
+        location.reload();
+    }
+
+    function Save(subjectId) {
+        const subjectName = document.getElementById('subjectName_' + subjectId);
+        subjectName.style.display = 'block';
+        const newSubjectName = document.getElementById('newSubjectName_' + subjectId);
+        newSubjectName.style.display = 'none';
+        const editBtn = document.getElementById('editBtn_' + subjectId);
+        editBtn.style.display = 'block';
+        const saveBtn = document.getElementById('saveBtn_' + subjectId);
+        saveBtn.style.display = 'none';
+        const delBtn = document.getElementById('delBtn_' + subjectId);
+        delBtn.style.display = 'block';
+        const cancelBtn = document.getElementById('cancelBtn_' + subjectId);
+        cancelBtn.style.display = 'none';
+
+        $.ajax({
+            url: '/Subjects/Edit',
+            type: 'POST',
+            data: {
+                newSubjectName: newSubjectName.value,
+                subjectId: subjectId
+            },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function confirmDelete(subjectId, event) {
+        alert(subjectId);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this subject!",
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                removeSubject(subjectId, event);
+            }
+        });
+    }
+
+    function removeSubject(subjectId, event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/Subjects/Delete',
+            data: { subjectId: subjectId },
+            success: function () {
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

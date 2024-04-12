@@ -1,0 +1,64 @@
+﻿
+<div class="d-flex align-items-center flex-column">
+    <h2>@Model.Title</h2>
+    @foreach (var question in Model.Questions)
+    {
+        <div class="border border-dark rounded-3 p-3 m-3 w-100">
+            <h4>@question.Text</h4>
+            <hr>
+            <div>
+                @{
+                    int tmp = 0;
+                    foreach (var option in question.Options)
+                    {
+                        if (option.Value > 0)
+                        {
+                            tmp++;
+                        }
+                    }
+
+                    var inputType = tmp > 1 ? "checkbox" : "radio";
+                }
+                @foreach (var option in @question.Options)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="@inputType" name="selectedOptionsId_@question.Id" value="@option.Id">
+                        <label class="form-check-label">@option.Text</label>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    <button class="btn btn-success w-100 h-100" id="saveBtn" data-quiz-id="@Model.Id">Save</button>
+</div>
+
+@section Scripts
+{
+    <script>
+        $("#saveBtn").click(function (){
+             var quizId = $(this).data("quiz-id");
+             var selectedOptions = [];
+             $("input:checked").each(function (){
+                 selectedOptions.push($(this).val());
+             });
+             $.ajax({
+                 url:"/Student/Quiz/Show/",
+                 type: "post",
+                 data:{
+                     quizId: quizId,
+                     selectedOptions : selectedOptions
+                 },
+                 success: function(response) {
+                     // Обработка успешного запроса
+                     // Перенаправление на страницу индекса или что-то еще
+                     window.location.href = response.redirectUrl; // Пример перенаправления на страницу, полученную из ответа
+                 },
+                 error: function(xhr, status, error) {
+                     // Обработка ошибки
+                     console.error(xhr.responseText); // Вывод ошибки в консоль
+                 }
+             });
+        });
+    </script>
+
+}

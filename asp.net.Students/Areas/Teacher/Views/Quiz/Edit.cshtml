@@ -1,0 +1,228 @@
+﻿@model Quiz
+@{
+    var subjects = ViewData["Subjects"] as List<Subject>;
+    var groups = ViewData["Groups"] as List<Group>;
+}
+
+<button id="addQuestion" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Add Question
+</button>
+<br>
+<br>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="ClearForm()"></button>
+            </div>
+            <form id="questionForm">
+                <input type="hidden" name="QuizId" value="@Model.Id">
+                <input type="hidden" name="QuestionId" id="QuestionId">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label w-100">
+                            Question text:
+                            <input class="form-control" type="text" id="QuestionText" name="QuestionText">
+                        </label>
+                    </div>
+                    <div class="mb-3" id="optionContainer">
+
+                    </div>
+                    <button class="btn btn-primary" id="addOption" type="button">Add Option</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ClearForm()">Cancel</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <form asp-controller="Quiz" asp-action="Edit" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <div class="row mb-3">
+                <div class="col">
+                    @Html.LabelFor(m => m.Title, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", Value = Model.Title })
+                    @Html.ValidationMessageFor(m => m.Title)
+                </div>
+                <div class="col">
+                    <label asp-for="@Model.Subject" class="form-label"></label>
+                    <select name="selectedSubjectId" class="form-control">
+                        @foreach (var subject in subjects)
+                        {
+                            if (@Model.Subject.Id == subject.Id)
+                            {
+                                <option value="@subject.Id" selected="selected">@subject.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@subject.Id">@subject.Name</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="@Model.Subject" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label class="form-label">Quiz Groups:</label>
+                    <div>
+                        @foreach (var group in groups)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="selectedGroupIds" value="@group.Id" @(Model.Groups != null && Model.Groups.Any(g => g.Id == group.Id) ? "checked" : "")>
+                                <label class="form-check-label">@group.Name</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col d-flex">
+                    <button class="btn btn-success h-100 w-100" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-body">
+        @foreach (var question in @Model.Questions)
+        {
+            <div class="mb-3">
+                <div class="d-flex justify-content-between w-75">
+                    <h4>@question.Text</h4>
+                    <div>
+                        <button type="button"
+                                class="btn btn-warning editQuestionBtn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"
+                                data-question-id="@question.Id">
+                            ✏ 
+                        </button>
+                        <a class="btn btn-danger"
+                        asp-controller="Question"
+                        asp-action="Delete"
+                        asp-route-id="@question.Id"
+                        asp-route-QuizId="@Model.Id">Delete</a>
+                    </div>
+                </div>
+
+                <ul>
+                    @foreach (var option in question.Options)
+                    {
+                        <li class="w-50 d-flex justify-content-between">
+                            
+                            <p>@option.Text</p> 
+                            <p>@option.Value</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <hr>
+        }
+    </div>
+    
+</div>
+
+@section Scripts
+{
+    <script>
+        let optionIndex = 1;
+        
+        const ClearForm=()=>{
+            $("#optionContainer").empty();
+            $("#QuestionText").val("");
+            $("#staticBackdropLabel").text("");
+            optionIndex = 1;
+        }
+        
+        $("#addQuestion").click(function (){
+            $("#staticBackdropLabel").text("Add Question");
+        })
+        
+        $("#addOption").click(function (){
+            var html = `<div class="mb-3">
+                            <label class="form-label w-100 d-flex">
+                                <input class="m-3" type="checkbox" name="IsCorrect[${optionIndex}]">
+                                <input class="form-control" type="text" name="Option[${optionIndex}]" required>
+                                <button class="btn btn-danger delete-option">🗑</button>
+                            </label>
+                        </div>`;
+            $('#optionContainer').append(html);
+            optionIndex++;
+        });
+
+        
+        $("#questionForm").submit(function(e) {
+            e.preventDefault();
+            let formData = {
+                QuestionId: $("#QuestionId").val() || 0,
+                QuestionText: $("#QuestionText").val(),
+                QuizId: $("input[name='QuizId']").val(),
+                OptionTexts: [],
+                IsCorrect: []
+            };
+            console.log(formData);
+            $("input[name^='Option']").each(function() {
+                formData.OptionTexts.push($(this).val());
+            });
+            $("input[name^='IsCorrect']").each(function() {
+                formData.IsCorrect.push($(this).is(":checked"));
+            });
+            $.ajax({
+                url: '/Teacher/Question/AddEdit/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    console.log(response);
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+        
+        $(".editQuestionBtn").click(function() {
+            $("#staticBackdropLabel").text("Edit question text");
+            var questionId = $(this).data("question-id");
+            console.log(questionId);
+            $.ajax({
+                url: '/Teacher/Question/GetQuestionById', 
+                type: 'GET',
+                data: { id: questionId },
+                success: function(response) {
+                    console.log(response);
+                    $("#staticBackdropLabel").text("Edit Question");
+                    $("#QuestionId").val(response.Id);
+                    $("#QuestionText").val(response.Text);
+                    $("#optionContainer").empty();
+
+                    response.Options.$values.forEach(function(option) {
+                        var isChecked = option.Value > 0 ? "checked" : "";
+                         var html = 
+                            `<div class="mb-3">
+                                <label class="form-label w-100 d-flex">
+                                    <input class="m-3" type="checkbox" name="IsCorrect[${optionIndex}]" ${isChecked}>
+                                    <input class="form-control" type="text" name="Option[${optionIndex}]" value="${option.Text}" required>
+                                    <button class="btn btn-danger delete-option">🗑</button>
+                                </label>
+                            </div>`;
+                        $('#optionContainer').append(html);
+                        optionIndex++;
+                    });
+
+                    $("#staticBackdrop").modal("show");
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+        
+        $('#optionContainer').on('click', '.delete-option', function() {
+            $(this).closest('.mb-3').remove();
+        });
+    </script>
+}

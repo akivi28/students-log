@@ -1,0 +1,36 @@
+﻿@model List<asp.net.Students.Models.Quiz>
+@{
+    var subjects = ViewData["Subjects"] as List<Subject>;
+    var groups = ViewData["Groups"] as List<Group>;
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 10%">ID</th>
+            <th style="width: 15%">Title</th>
+            <th style="width: 15%">Subject</th>
+            <th style="width: 15%">Teacher</th>
+            <th style="width: 10%">Count of questions</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @if (Model != null)
+    {
+        foreach (var quiz in Model)
+        {
+            <tr>
+                <td style="width: 10%">@quiz.Id</td>
+                <td style="width: 15%">@quiz.Title</td>
+                <td style="width: 15%">@quiz.Subject.Name</td>
+                <td style="width: 15%">@quiz.Teacher.Email</td>
+                <td class="text-center" style="width: 10%">@quiz.Questions.Count()</td>
+                <td>
+                    <a asp-area="Student" asp-controller="Quiz" asp-action="Show" asp-route-id="@quiz.Id" class="btn btn-primary">Start</a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

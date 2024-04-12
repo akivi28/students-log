@@ -1,0 +1,92 @@
+﻿@using System.Security.Claims
+
+<style>
+    #userRolesList {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #userRolesList li {
+        margin-bottom: 5px;
+        padding: 8px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+        border: 1px solid green;
+    }
+     .show{
+            max-width: 100vw;
+        }
+</style>
+
+<div class="modal" id="Modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="ModalBody">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" onclick="HideUserInfo()"></div>
+<div id="userInfoPanel" class="user-info-panel">
+    <div class="pt-5 d-flex align-items-center flex-column">
+        <h4>@User.Identity?.Name</h4>
+        <br>
+        <p>Roles:</p>
+        <ul id="userRolesList" class="d-flex"></ul>
+        <hr>
+        <div class="d-flex flex-column w-100">
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="btn btn-light border border-dark mt-1" asp-area="Auth" asp-controller="User" asp-action="Index">All users</a>
+                <a class="btn btn-light border border-dark mt-1" onclick="showAllRoles()">Roles</a>
+            }
+            <a class="btn btn-light border border-danger mt-1" asp-area="Auth" asp-controller="Account" asp-action="Logout">Log out</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getUserRoles() {
+        fetch('/Auth/Profile/GetUserRoles')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayUserRoles(data);
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+
+    function displayUserRoles(userRoles) {
+        var roleList = '';
+        userRoles.forEach(role => {
+            roleList += '<li>' + role + '</li>';
+        });
+        document.getElementById('userRolesList').innerHTML = roleList;
+    }
+    
+    function showAllRoles() {
+        $.ajax({
+            url: '/Auth/Role/Index/',
+            type: 'GET',
+            success: function(data) {
+                HideUserInfo();
+                var rolesTableContent = $(data).find('#rolesTable').html();
+                $('#ModalBody').html(rolesTableContent);
+                $('#Modal').modal('show');
+            },
+            error: function(xhr, status, error) {
+                console.log('Error:', error);
+            }
+        });
+    }
+
+    getUserRoles();
+</script>

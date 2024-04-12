@@ -1,0 +1,126 @@
+﻿@model Info
+
+@{
+    var AvgeByAllSub = ViewData["AvgeByAllSub"];
+    var NumOfGradeByAllSub = ViewData["NumOfGradeByAllSub"];
+    var grades = ViewData["Grades"] as List<Grade>;
+}
+
+<div class="row justify-content-between">
+    <div class="col-md-5 show">
+        @if (Model.Photos != null && Model.Photos.Count != 0)
+        {
+            @Html.Partial("_Carusel", new CarouselModel { StudentId = Model.Id, Photos = Model.Photos.ToList() })
+        }
+    </div>
+    <div class="col-md d-flex flex-column align-items-center justify-content-center">
+        <h5 class="text-center">Average grade by all subjects</h5>
+        <div style="border-radius: 50%; width:100px; height:100px;" class="border border-2 border-primary m-1 d-flex flex-column align-items-center justify-content-center">
+            <h3>@AvgeByAllSub</h3>
+        </div>
+        <h5 class="text-center">Number of grade by all subjects</h5>
+        <div style="border-radius: 50%; width:100px; height:100px;" class="border border-2 border-success m-1 d-flex flex-column align-items-center justify-content-center">
+            <h3>@NumOfGradeByAllSub</h3>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-body show">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Id:</th>
+                        <td>@Model.Id</td>
+                    </tr>
+                    <tr>
+                        <th>Name:</th>
+                        <td>@Model.Name</td>
+                    </tr>
+
+                    <tr>
+                        <th>Surname:</th>
+                        <td>@Model.Surname</td>
+                    </tr>
+                    <tr>
+                        <th>Birthday:</th>
+                        <td>@Model.BirthDay.Date.ToString("yyyy-MM-dd")</td>
+                    </tr>
+                    <tr>
+                        <th>Group:</th>
+                        <td>
+                            @if (Model.Group != null)
+                            {
+                                <span>@Model.Group.Name</span>
+                            }
+                            else
+                            {
+                                <span style="color: red;">Not in a group</span>
+                            }
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Description:</th>
+                        <td>@Model.Description</td>
+                    </tr>
+                    <tr>
+                        <th>Is Free:</th>
+                        <td>
+                            @{
+                                var imagePath = Model.IsFree ? "/prImg/accept.png" : "/prImg/remove.png";
+                            }
+                            <img width="50px" src="@imagePath" alt="@Model.IsFree" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Students" asp-action="StudentsList" class="btn btn-primary">Return</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Students" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>GPA</th>
+            <th>Num of grade</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var sub in Model.Subjects)
+        {
+            <tr>
+                <td>
+                    @sub.Name
+                </td>
+                <td>
+                    @{
+                        var subGrades = grades.Where(g => g.SubjectId == sub.Id);
+                        var avg = subGrades.Any() ? Math.Round(subGrades.Average(g => g.Value), 2) : 0;
+                    }
+                    @avg
+                </td>
+                <td>
+                    @{
+                        var count = subGrades.Count();
+                    }
+                    @count
+                </td>
+                <td>
+                    <a asp-controller="Grades"
+                    asp-action="Index"
+                    asp-route-studentId="@Model.Id"
+                    asp-route-subjectId="@sub.Id"
+                    class="btn btn-primary">Show grades</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

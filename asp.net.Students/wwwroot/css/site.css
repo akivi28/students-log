@@ -1,0 +1,81 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+td, th{
+    vertical-align:middle;
+}
+.show{
+    display: flex;
+    align-items:center;
+    max-width:500px;
+}
+.edit {
+    width:60vh;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: brightness(0);
+}
+.photoInList{
+    width:100px;
+}
+.photoInList .carousel-indicators {
+    display:none;
+}
+.card{
+    height:100%
+}
+
+.show .carousel .carousel-inner .carousel-item .carousel-caption {
+    display: none;
+}
+
+.photoInList .carousel .carousel-inner .carousel-item .carousel-caption {
+    display: none;
+}
+
+.user-info-panel {
+    position: fixed;
+    top: 0;
+    right: -30vw;
+    width: 30vw;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    transition: right 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showInfo{
+    right: 0px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+}
+
